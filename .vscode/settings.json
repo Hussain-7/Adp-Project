@@ -2,5 +2,6 @@
     "files.associations": {
         "iostream": "cpp",
         "new": "cpp"
-    }
+    },
+    "python.pythonPath": "C:\\Python\\Python39\\python.exe"
 }
