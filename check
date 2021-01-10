@@ -2,24 +2,7 @@
 #include<stdlib.h>
 #include<time.h>
 using namespace std;
-
-// This function multiplies
-// mat1[][] and mat2[][], and
-// stores the result in res[][]
 void multiply(int **mat1,
-			int **mat2,
-			int **res,int nrow1,int ncols2,int ncols1)
-{
-	int i, j, k;
-	for (i = 0; i < nrow1; i++) {
-		for (j = 0; j < ncols2; j++) {
-			res[i][j] = 0;
-			for (k = 0; k < ncols1; k++)
-				res[i][j] += mat1[i][k] * mat2[k][j];
-		}
-	}
-}
-void multiplyOptimized(int **mat1,
 			int **mat2,
 			int **res,int nrows1,int ncols2,int ncols1)
 {
@@ -98,16 +81,10 @@ int main()
     double execution_time = 0.0;
     execution_time=end-start;
     printf("\n\nTime elpased is in seconds: %f\n\n", execution_time);
-
-
-    time_t start2 = time(NULL);
-	multiplyOptimized(matrix1, matrix2, result,nrows1,ncols2,ncols1);
-    time_t end2 = time(NULL);
-    double execution_time2 = 0.0;
-    execution_time=end2-start2;
-    printf("\n\nTime elpased is in seconds: %f\n\n", execution_time2);
-	// cout << "\n<----Result Matrix---->\n\n";
-    // printMatrix(result,nrows1,ncols2);
+	cout << "\n<----Result Matrix---->\n\n";
+	// printMatrix(result,nrows1,ncols2);
+    
+   
 
 	return 0;
 }
