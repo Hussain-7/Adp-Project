@@ -71,7 +71,7 @@ string decrypt(string msg) {
 		}
 		else {
 			count++;
-			if (count == 2) {	
+			if (count == 2) {
 				decrypted += " ";
 			}
 			else {
@@ -96,7 +96,7 @@ int main() {
 	transform(msg.begin(), msg.end(), msg.begin(), ::toupper);
 	eMsg = encrypt(msg);
 	dMsg = decrypt(eMsg);
-	cout << "Encrypted string is: "<<eMsg<<endl;
+	cout << "Encrypted string is: " << eMsg << endl;
 	cout << "Decrypted string is: " << dMsg << endl;
 	return 0;
 }

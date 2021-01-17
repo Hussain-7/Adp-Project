@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -7,11 +8,13 @@ using namespace std;
 //Function to get the number of common characters between str1 and str2 
 int lcs(string str1, string str2, int m, int n)
 {
-	int L[m + 1][n + 1];
-	int i, j;
+	int** L = new int* [m + 1];
+	for (int i = 0; i < m + 1; i++) {
+		L[i] = new int[n + 1];
+	}
 	// length of LCS of str1[0..i-1] and str2[0..j-1]
-	for (i = 0; i <= m; i++) {
-		for (j = 0; j <= n; j++) {
+	for (int i = 0; i <= m; i++) {
+		for (int j = 0; j <= n; j++) {
 			if (i == 0 || j == 0)
 				L[i][j] = 0;
 
@@ -36,8 +39,8 @@ void printMinDelAndInsert(string str1, string str2)
 	int n = str2.size();
 	//len get the longest common
 	int len = lcs(str1, str2, m, n);
-	cout << "Minimum number of deletions = " << (m - len)<< endl;
-	cout << "Minimum number of insertions = " << (n - len)<< endl;
+	cout << "Minimum number of deletions = " << (m - len) << endl;
+	cout << "Minimum number of insertions = " << (n - len) << endl;
 }
 
 // Driver Code
@@ -47,12 +50,12 @@ int main()
 	string str1 = "";
 	string str2 = "";
 
-	cout<<"Enter string 1 : ";
-	cin>>str1;
-	cout<<"Enter string 2 : ";
-    cin>>str2;
-	cout<<"\nMinimum number of insertion/deletion required to transform \""<<str1<<"\" into \""<<str2<<"\" :\n"<<endl;
-    
+	cout << "Enter string 1 : ";
+	getline(cin, str1);
+	cout << "Enter string 2 : ";
+	getline(cin, str2);
+	cout << "\nMinimum number of insertion/deletion required to transform \"" << str1 << "\" into \"" << str2 << "\" :\n" << endl;
+
 	// Function Call
 	printMinDelAndInsert(str1, str2);
 	return 0;

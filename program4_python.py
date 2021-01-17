@@ -1,5 +1,6 @@
 import numpy as np
 import time
+import random
 
 def multiplyOptimized(matrix1, matrix2, result, nrows1, ncols2, ncols1):
     for i in range(0, nrows1):
@@ -22,13 +23,18 @@ nrows2 = ncols1
 ncols2 = int(input('Number of columns : '))
 
 # Initializing matrix 1 and matrix 2
-matrix1 = np.random.randint(100, size=(nrows1, ncols1))
-matrix2 = np.random.randint(100, size=(nrows2, ncols2))
-result = np.zeros((nrows1, ncols2), dtype=int)
+matrix1 = [random.choices(range(0, 100), k=ncols1) for _ in range(nrows1)]
+matrix2 = [random.choices(range(0, 100), k=ncols2) for _ in range(nrows2)]
+result = [random.choices(range(0,1), k=ncols2) for _ in range(nrows1)]
+
 print(f'\n<-----Matrix 1----->\n\n{matrix1}')
 print(f'\n<-----Matrix 2----->\n\n{matrix2}')
 start = time.time()
 multiplyOptimized(matrix1, matrix2, result, nrows1, ncols2, ncols1)
 end = time.time()
+start2 = time.time()
+np.matmul(matrix1, matrix2)
+end2 = time.time()
 print(f'\n<-----Result----->\n\n{result}')
-print(f"Runtime of the program is {end - start}")
+print(f"Runtime of the multiplication with self defined algo is {end - start}")
+print(f"Runtime of the program is {end2- start2}")
